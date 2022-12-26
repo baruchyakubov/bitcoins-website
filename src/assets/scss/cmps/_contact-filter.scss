@@ -1,0 +1,18 @@
+.contact-filter {
+   padding: 0;
+   padding-top: 30px;
+   padding-bottom: 30px;
+
+   input {
+      max-width: 340px;
+      padding: 12px;
+      border-radius: 10px;
+   }
+}
+
+.filter-section {
+   margin-bottom: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}

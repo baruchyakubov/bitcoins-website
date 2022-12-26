@@ -1,0 +1,15 @@
+.home-page {
+    h1{
+        margin-bottom: 10px;
+    }
+    div {
+        margin-bottom: 7px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        img{
+            height: 20px;
+            width: 20px;
+        }
+    }
+}
