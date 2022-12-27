@@ -1,0 +1,22 @@
+.transfer-fund{
+    background-color: rgb(108, 194, 216);
+    // max-width: max-content;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    h1{
+        font-size: large;
+        margin-bottom: 10px;
+    }
+    form{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        button{
+            padding: 5px;
+        }
+    }
+}

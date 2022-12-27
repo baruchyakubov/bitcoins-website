@@ -1,0 +1,15 @@
+.signup-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    img{
+        height: 120px;
+        width: 120px;
+    }
+    input{
+        padding: 10px;
+        border-radius: 10px;
+    }
+}
