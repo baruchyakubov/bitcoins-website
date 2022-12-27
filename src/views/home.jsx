@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { userService } from '../services/user.service'
 import { bitcoinService } from '../services/bitcion.service'
+import { MoveList } from '../cmps/MoveList'
 
 export class Home extends Component {
     state = {
@@ -14,7 +15,10 @@ export class Home extends Component {
 
     loadUser() {
         const user = userService.getUser()
-        this.setState({ user }, () => this.getBitcoin())
+        this.setState({ user }, () => {
+            if(this.state.user) this.getBitcoin()
+            else this.props.history.push('/signup')
+        })
 
     }
 
@@ -37,6 +41,8 @@ export class Home extends Component {
                     <img src={require(`../assets/imgs/bitcoins.png`)} alt="" />
                     <p>Bitcoin: {bitcoin}</p>
                 </div>
+                <h1>Your last moves:</h1>
+                {(user && user.moves.length) && <MoveList moves={user.moves.slice(0,3)}></MoveList>}
             </section>
         )
     }

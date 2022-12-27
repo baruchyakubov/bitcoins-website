@@ -6,23 +6,14 @@ export const userService = {
     addMove
 }
 
-var gUser = {
-    name: "Ochoa Hyde",
-    coins: 100,
-    moves: []
-}
+
+var gUser
 
 function getUser() {
+    var user = storageService.load('user')
+    gUser = user
     return gUser
 }
-
-// var gUser
-
-// function getUser() {
-//     var user = storageService.load('user')
-//     gUser = user
-//     return gUser
-// }
 
 function signUp(name) {
     gUser = {
@@ -30,9 +21,13 @@ function signUp(name) {
         coins: 100,
         moves: []
     }
+    storageService.store('user', gUser)
 }
 
-function addMove(contact, amount) {
+
+
+function addMove(contact, amount , updatedUser) {
+    gUser = updatedUser
     gUser.moves.unshift({
         toId: contact._id,
         to: contact.name,
@@ -40,4 +35,6 @@ function addMove(contact, amount) {
         amount
     }
     )
+    storageService.store('user', gUser)
+    return gUser
 }

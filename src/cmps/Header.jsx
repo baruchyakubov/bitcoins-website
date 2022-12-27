@@ -4,17 +4,17 @@ export function Header({ ChangePage }) {
   return (
     <header className="Header container">
       <NavLink exact to="/">
-        <button onClick={() => ChangePage('home')}>
+        <button>
           <img src={require(`../assets/imgs/home.png`)} alt="" />
         </button>
       </NavLink>
       <NavLink to="/contact">
-        <button onClick={() => ChangePage('contact')}>
+        <button>
           <img src={require(`../assets/imgs/contact.png`)} alt="" />
         </button>
       </NavLink>
       <NavLink to="/stats">
-        <button onClick={() => ChangePage('stats')}>
+        <button>
           <img src={require(`../assets/imgs/stats.png`)} alt="" />
         </button>
       </NavLink>
