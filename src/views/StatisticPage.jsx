@@ -42,7 +42,7 @@ export class StatisticPage extends Component {
         data.values.forEach(value => {
             const date = new Date(value.x*1000)
             dataset.categories.unshift(date.toLocaleString())
-            dataset.data.unshift(value.y)
+            dataset.data.unshift(Math.trunc(value.y))
         })
         return dataset
     }

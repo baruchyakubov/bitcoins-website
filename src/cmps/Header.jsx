@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-export function Header({ ChangePage }) {
+export function _Header({ user }) {
+  if (!user) return <div></div>
   return (
     <header className="Header container">
       <NavLink exact to="/">
@@ -21,3 +23,9 @@ export function Header({ ChangePage }) {
     </header >
   )
 }
+
+const mapStateToProps = state => ({
+  user: state.userModule.user,
+})
+
+export const Header = connect(mapStateToProps, null)(_Header)

@@ -1,38 +1,22 @@
 import { Component } from 'react'
-import { contactService } from '../services/contact.service'
+import { connect } from 'react-redux'
 import { ContactList } from '../cmps/ContactList'
-import { ContactDetails } from './ContactDetails'
 import { ContactFilter } from '../cmps/ContactFilter'
+import { loadContacts , setFilterBy } from '../store/actions/contact.actions'
 
-export class ContactPage extends Component {
-
-    state = {
-        contacts: null,
-        filterBy: {
-            txt: ''
-        }
-    }
+class _ContactPage extends Component {
 
     componentDidMount() {
-        this.loadContacts()
-    }
-
-    loadContacts = async () => {
-        try {
-            const contacts = await contactService.getContacts(this.state.filterBy)
-            this.setState({ contacts })
-        } catch (err) {
-            console.log('err:', err)
-        }
+        this.props.loadContacts()
     }
 
     onChangeFilter = (filterBy) => {
-        console.log(filterBy);
-        this.setState({ filterBy }, this.loadContacts)
+        this.props.setFilterBy(filterBy)
+        this.props.loadContacts()
     }
 
     render() {
-        const { contacts , filterBy } = this.state
+        const { contacts, filterBy } = this.props
         if (!contacts) return <div>Loading...</div>
         return (
             <section className='contact-page container'>
@@ -42,3 +26,16 @@ export class ContactPage extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    contacts: state.contactModule.contacts,
+    filterBy: state.contactModule.filterBy,
+
+})
+
+const mapDispatchToProps = {
+    loadContacts,
+    setFilterBy
+}
+
+export const ContactPage = connect(mapStateToProps, mapDispatchToProps)(_ContactPage)

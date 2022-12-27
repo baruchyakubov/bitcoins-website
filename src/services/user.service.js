@@ -22,6 +22,7 @@ function signUp(name) {
         moves: []
     }
     storageService.store('user', gUser)
+    return gUser
 }
 
 

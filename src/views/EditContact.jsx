@@ -1,8 +1,10 @@
 import { Component } from 'react'
 import { Link } from "react-router-dom"
+import { connect } from 'react-redux'
+import { removeContact, updateContact } from '../store/actions/contact.actions'
 import { contactService } from '../services/contact.service'
 
-export class EditContact extends Component {
+export class _EditContact extends Component {
     state = {
         contact: contactService.getEmptyContact()
     }
@@ -18,7 +20,7 @@ export class EditContact extends Component {
     onAddContact = async (ev) => {
         ev.preventDefault()
         try {
-            await contactService.saveContact({ ...this.state.contact })
+            this.props.updateContact({...this.state.contact})
             this.props.history.push('/contact')
         } catch (err) {
             console.log('err:', err)
@@ -44,7 +46,7 @@ export class EditContact extends Component {
     }
 
     deleteContact = async () => {
-        await contactService.deleteContact(this.state.contact._id)
+        this.props.removeContact(this.state.contact._id)
         this.props.history.push('/contact')
     }
 
@@ -77,3 +79,14 @@ export class EditContact extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    contacts: state.contactModule.contacts,
+})
+
+const mapDispatchToProps = {
+    removeContact,
+    updateContact
+}
+
+export const EditContact = connect(mapStateToProps, mapDispatchToProps)(_EditContact)

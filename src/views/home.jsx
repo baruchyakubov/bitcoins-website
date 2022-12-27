@@ -1,11 +1,11 @@
 import { Component } from 'react'
-import { userService } from '../services/user.service'
 import { bitcoinService } from '../services/bitcion.service'
 import { MoveList } from '../cmps/MoveList'
+import { connect } from 'react-redux'
+import { setUser } from '../store/actions/user.actions'
 
-export class Home extends Component {
+export class _Home extends Component {
     state = {
-        user: null,
         bitcoin: null
     }
 
@@ -13,22 +13,20 @@ export class Home extends Component {
         this.loadUser()
     }
 
-    loadUser() {
-        const user = userService.getUser()
-        this.setState({ user }, () => {
-            if(this.state.user) this.getBitcoin()
-            else this.props.history.push('/signup')
-        })
-
+      async loadUser() {
+        const user = await this.props.setUser()
+        if(user) this.getBitcoin(user)
+        else this.props.history.push('/signup')
     }
 
-    async getBitcoin() {
-        const bitcoin = await bitcoinService.getRate(this.state.user.coins)
+    async getBitcoin(user) {
+        const bitcoin = await bitcoinService.getRate(user.coins)
         this.setState({ bitcoin: bitcoin.data })
     }
 
     render() {
-        const { user, bitcoin } = this.state
+        const { bitcoin } = this.state
+        const { user } = this.props
         if (!user) return <div>Loading...</div>
         return (
             <section className='home-page container'>
@@ -47,3 +45,13 @@ export class Home extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    user: state.userModule.user,
+})
+
+const mapDispatchToProps = {
+    setUser
+}
+
+export const Home = connect(mapStateToProps, mapDispatchToProps)(_Home)
