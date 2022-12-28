@@ -71,7 +71,7 @@ export class _EditContact extends Component {
                     <section className='edit-btn'>
                         <button >{contact._id ? 'Edit' : 'Add'}</button>
                         {contact._id && <button onClick={this.deleteContact}>Delete</button>}
-                        <Link to={`/contact/${this.state.contact._id}`}><button>Back</button></Link>
+                        <Link to={contact._id ? `/contact/${this.state.contact._id}` : '/contact'}><button>Back</button></Link>
                     </section>
 
                 </form>
