@@ -16,6 +16,14 @@ export function signUp(name) {
     }
 }
 
+export function logout() {
+    return (dispatch) => {
+        const user = userService.logout()
+        dispatch({ type: 'LOGOUT', user })
+        return user
+    }
+}
+
 export function updateUser(contact, amount, User) {
     return (dispatch) => {
         const user = userService.addMove(contact, amount, User)

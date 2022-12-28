@@ -3,7 +3,8 @@ import { storageService } from "./storage.service"
 export const userService = {
     getUser,
     signUp,
-    addMove
+    addMove,
+    logout
 }
 
 
@@ -25,9 +26,13 @@ function signUp(name) {
     return gUser
 }
 
+function logout() {
+    localStorage.removeItem('user')
+    gUser = null
+    return gUser
+}
 
-
-function addMove(contact, amount , updatedUser) {
+function addMove(contact, amount, updatedUser) {
     gUser = updatedUser
     gUser.moves.unshift({
         toId: contact._id,

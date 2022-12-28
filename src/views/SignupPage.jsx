@@ -7,8 +7,8 @@ export class _SignupPage extends Component {
         name: ''
     }
 
-    componentDidMount() { 
-        if (this.props.user)  this.props.history.push('/')
+    componentDidMount() {
+        if (this.props.user) this.props.history.push('/')
     }
 
     signup = (ev) => {
@@ -27,13 +27,17 @@ export class _SignupPage extends Component {
     render() {
         const { name } = this.state
         return (
-            <form onSubmit={this.signup} className='signup-page container'>
-                <img src={require(`../assets/imgs/bitcoin-icon.png`)} alt="" />
-                <h1>Please enter your name:</h1>
-                <label htmlFor="name">name</label>
-                <input onChange={this.handleChange} value={name} type="text" placeholder='Name' name="name" id="name"/>
-                <button>Signup</button>
-            </form>
+            <>
+                <h1 className='container logo'>Bitcoin Market</h1>
+                <form onSubmit={this.signup} className='signup-page container'>
+                    <img src={require(`../assets/imgs/bitcoin-icon.png`)} alt="" />
+                    <h1>Please enter your name:</h1>
+                    <label htmlFor="name">name</label>
+                    <input onChange={this.handleChange} value={name} type="text" placeholder='Name' name="name" id="name" />
+                    <button>Signup</button>
+                </form>
+            </>
+
         )
     }
 }

@@ -66,7 +66,7 @@ class _ContactDetails extends Component {
 
                 <TransferFund contact={contact} updateUser={this.updateUser}></TransferFund>
                 <h1>Your moves:</h1>
-                {(moves?.length) && <MoveList moves={moves} contact={contact}></MoveList>}
+                {(!moves?.length) ? <div>No moves yet</div> : <MoveList moves={moves} contact={contact}></MoveList>}
             </section>
         )
     }
