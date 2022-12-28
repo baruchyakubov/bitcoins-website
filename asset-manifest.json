@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/bitcoins-website/static/css/main.4d1dca4c.css",
-    "main.js": "/bitcoins-website/static/js/main.9fffc06d.js",
+    "main.js": "/bitcoins-website/static/js/main.5ae53c8a.js",
     "static/js/787.28cb0dcd.chunk.js": "/bitcoins-website/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/bitcoins-website/index.html",
     "main.4d1dca4c.css.map": "/bitcoins-website/static/css/main.4d1dca4c.css.map",
-    "main.9fffc06d.js.map": "/bitcoins-website/static/js/main.9fffc06d.js.map",
+    "main.5ae53c8a.js.map": "/bitcoins-website/static/js/main.5ae53c8a.js.map",
     "787.28cb0dcd.chunk.js.map": "/bitcoins-website/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4d1dca4c.css",
-    "static/js/main.9fffc06d.js"
+    "static/js/main.5ae53c8a.js"
   ]
 }
