@@ -47,7 +47,7 @@ export class _EditContact extends Component {
 
     deleteContact = async () => {
         this.props.removeContact(this.state.contact._id)
-        this.props.history.push('/contact')
+        this.props.history.push(`/contact`)
     }
 
     render() {
@@ -59,19 +59,19 @@ export class _EditContact extends Component {
             <section className='edit-page container'>
                 <h1>{contact._id ? 'Edit' : 'Add'} Contact</h1>
                 <form onSubmit={this.onAddContact}>
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name">Name:</label>
                     <input onChange={this.handleChange} value={name} type="text" name="name" id="name" />
 
-                    <label htmlFor="phone">Phone</label>
+                    <label htmlFor="phone">Phone:</label>
                     <input onChange={this.handleChange} value={phone} type="text" name="phone" id="phone" />
 
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email">Email:</label>
                     <input onChange={this.handleChange} value={email} type="text" name="email" id="email" />
 
                     <section className='edit-btn'>
                         <button >{contact._id ? 'Edit' : 'Add'}</button>
                         {contact._id && <button onClick={this.deleteContact}>Delete</button>}
-                        <Link to='/contact'><button>Back</button></Link>
+                        <Link to={`/contact/${this.state.contact._id}`}><button>Back</button></Link>
                     </section>
 
                 </form>

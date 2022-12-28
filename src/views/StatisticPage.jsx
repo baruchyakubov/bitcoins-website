@@ -28,7 +28,7 @@ export class StatisticPage extends Component {
         try {
             const data = await bitcoinService.getTradingVolume()
             let dataset2 = this.setData(data)
-            this.setState({ dataset2 } , () => console.log(this.state.dataset2))
+            this.setState({ dataset2 })
         } catch (err) {
             console.log('error', err);
         }
@@ -52,9 +52,9 @@ export class StatisticPage extends Component {
         if(!dataset && !dataset2) return <div>Loading...</div>
         return (
             <section className='statistic-page container'>
-                <h2>Market Price</h2>
+                <h1>Market Price</h1>
                 <Chart1 dataset={dataset}></Chart1>
-                <h2>Trading Volume</h2>
+                <h1>Trading Volume</h1>
                 <Chart1 dataset={dataset2}></Chart1>
             </section>
         )

@@ -2,21 +2,16 @@ import { Component } from 'react'
 import { bitcoinService } from '../services/bitcion.service'
 import { MoveList } from '../cmps/MoveList'
 import { connect } from 'react-redux'
-import { setUser } from '../store/actions/user.actions'
 
-export class _Home extends Component {
+class _Home extends Component {
     state = {
         bitcoin: null
     }
 
     componentDidMount() {
-        this.loadUser()
-    }
-
-      async loadUser() {
-        const user = await this.props.setUser()
-        if(user) this.getBitcoin(user)
-        else this.props.history.push('/signup')
+        if (!this.props.user)  this.props.history.push('/signup')
+        console.log(this.props.user);
+        this.getBitcoin(this.props.user)
     }
 
     async getBitcoin(user) {
@@ -50,8 +45,5 @@ const mapStateToProps = state => ({
     user: state.userModule.user,
 })
 
-const mapDispatchToProps = {
-    setUser
-}
 
-export const Home = connect(mapStateToProps, mapDispatchToProps)(_Home)
+export const Home = connect(mapStateToProps, null)(_Home)

@@ -1,7 +1,7 @@
 import { userService } from "../../services/user.service"
 
 export function setUser() {
-    return async (dispatch) => {
+    return (dispatch) => {
         const user = userService.getUser()
         dispatch({ type: 'SET_USER', user })
         return user

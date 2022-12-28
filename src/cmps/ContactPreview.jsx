@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export function ContactPreview({ contact, onSelectContactId }) {
+export function ContactPreview({ contact }) {
     return (
         <Link to={`/contact/${contact._id}`}>
             <section className="contact-preview">

@@ -10,8 +10,18 @@ import { Component } from 'react'
 import { ContactDetails } from './views/ContactDetails';
 import { EditContact } from './views/EditContact';
 import { SignupPage } from './views/SignupPage';
+import { connect } from 'react-redux'
+import { setUser } from './store/actions/user.actions';
 
-export class App extends Component {
+class _App extends Component {
+
+  componentDidMount() {
+    this.loadUser()
+  }
+
+  loadUser() {
+    this.props.setUser()
+  }
 
   render() {
     return (
@@ -28,12 +38,19 @@ export class App extends Component {
               <Route path="/stats" component={StatisticPage}></Route>
               <Route path="/" component={Home}></Route>
             </Switch>
-          </div> 
+          </div>
         </section>
       </Router>
     )
   }
 }
 
+const mapStateToProps = state => ({
+  user: state.userModule.user,
+})
 
-export default App;
+const mapDispatchToProps = {
+  setUser
+}
+
+export const App = connect(mapStateToProps, mapDispatchToProps)(_App)

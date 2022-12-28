@@ -1,6 +1,6 @@
 import { ContactPreview } from "./ContactPreview"
 
-export function ContactList({ contacts , onSelectContactId }) {
+export function ContactList({ contacts  }) {
     return (
         <section className="contact-list simple-cards-grid">
             {contacts.map(contact =>

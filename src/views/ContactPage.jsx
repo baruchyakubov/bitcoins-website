@@ -21,7 +21,7 @@ class _ContactPage extends Component {
         return (
             <section className='contact-page container'>
                 <ContactFilter onChangeFilter={this.onChangeFilter} filterBy={filterBy} />
-                <ContactList onSelectContactId={this.onSelectContactId} contacts={contacts} />
+                <ContactList contacts={contacts} />
             </section>
         )
     }

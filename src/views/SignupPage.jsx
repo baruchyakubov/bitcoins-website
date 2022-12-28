@@ -7,7 +7,9 @@ export class _SignupPage extends Component {
         name: ''
     }
 
-    componentDidMount() { }
+    componentDidMount() { 
+        if (this.props.user)  this.props.history.push('/')
+    }
 
     signup = (ev) => {
         ev.preventDefault()
@@ -36,8 +38,12 @@ export class _SignupPage extends Component {
     }
 }
 
+const mapStateToProps = state => ({
+    user: state.userModule.user,
+})
+
 const mapDispatchToProps = {
     signUp
 }
 
-export const SignupPage = connect(null, mapDispatchToProps)(_SignupPage)
+export const SignupPage = connect(mapStateToProps, mapDispatchToProps)(_SignupPage)

@@ -22,7 +22,7 @@ export class TransferFund extends Component {
         const { coins } = this.state
         return (
             <section className='transfer-fund container'>
-                <h1>Transfer coins to baruch</h1>
+                <h1>Transfer coins to {this.props.contact.name}</h1>
                 <form onSubmit={this.updateUser}>
                     <label htmlFor="coins">Amount:</label>
                     <input onChange={this.handleChange} value={coins} type="text" name="coins" id="coins" />
