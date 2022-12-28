@@ -34,22 +34,23 @@ export class StatisticPage extends Component {
         }
     }
 
-    setData = (data) =>{
+    setData = (data) => {
         let dataset = {
             categories: [],
             data: []
         }
-        data.values.forEach(value => {
-            const date = new Date(value.x*1000)
-            dataset.categories.unshift(date.toLocaleString())
-            dataset.data.unshift(Math.trunc(value.y))
-        })
+        for (var i = 0; i < 15; i++) {
+            const date = new Date(data.values[i].x * 1000)
+            const dateFormat = date.toLocaleDateString()
+            dataset.categories.unshift(dateFormat.slice(0, dateFormat.length-5))
+            dataset.data.unshift(Math.trunc(data.values[i].y))
+        }
         return dataset
     }
 
     render() {
-        const { dataset , dataset2 } = this.state
-        if(!dataset && !dataset2) return <div>Loading...</div>
+        const { dataset, dataset2 } = this.state
+        if (!dataset && !dataset2) return <div>Loading...</div>
         return (
             <section className='statistic-page container'>
                 <h1>Market Price</h1>
