@@ -50,7 +50,7 @@ export class StatisticPage extends Component {
 
     render() {
         const { dataset, dataset2 } = this.state
-        if (!dataset && !dataset2) return <div>Loading...</div>
+        if (!dataset && !dataset2) return <div className="container">Loading...</div>
         return (
             <section className='statistic-page container'>
                 <h1>Market Price</h1>

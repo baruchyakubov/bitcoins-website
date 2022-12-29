@@ -69,7 +69,7 @@ export class _EditContact extends Component {
                     <input onChange={this.handleChange} value={email} type="text" name="email" id="email" />
 
                     <section className='edit-btn'>
-                        <button >{contact._id ? 'Edit' : 'Add'}</button>
+                        <button >{contact._id ? 'Save' : 'Add'}</button>
                         {contact._id && <button onClick={this.deleteContact}>Delete</button>}
                         <Link to={contact._id ? `/contact/${this.state.contact._id}` : '/contact'}><button>Back</button></Link>
                     </section>

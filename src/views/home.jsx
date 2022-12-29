@@ -28,7 +28,7 @@ class _Home extends Component {
     render() {
         const { bitcoin } = this.state
         const { user } = this.props
-        if (!user) return <div>Loading...</div>
+        if (!user) return <div className="container">Loading...</div>
         return (
             <section className='home-page container'>
                 <h1>hello {user.name}!</h1>

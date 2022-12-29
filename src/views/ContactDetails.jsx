@@ -45,7 +45,7 @@ class _ContactDetails extends Component {
 
     render() {
         const { contact, moves } = this.state
-        if (!contact) return <div>Loading...</div>
+        if (!contact) return <div className="container">Loading...</div>
         return (
             <section className='contact-details container'>
                 <div className="details">

@@ -17,7 +17,7 @@ class _ContactPage extends Component {
 
     render() {
         const { contacts, filterBy } = this.props
-        if (!contacts) return <div>Loading...</div>
+        if (!contacts) return <div className="container">Loading...</div>
         return (
             <section className='contact-page container'>
                 <ContactFilter onChangeFilter={this.onChangeFilter} filterBy={filterBy} />
