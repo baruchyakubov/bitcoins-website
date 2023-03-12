@@ -5,7 +5,7 @@ react. The app has basic auth features , contact list
 with full crudle and statistic charts of bitcoin
 market.
 
-[Link to project](https://baruchyakubov.github.io/bitcoins-website/#/signup)
+[Link to website](https://baruchyakubov.github.io/bitcoins-website/#/signup)
 
 ![image](https://user-images.githubusercontent.com/114091759/224545133-7eb83386-2e8f-4782-bb69-42af771056be.png)
 ![image](https://user-images.githubusercontent.com/114091759/224545064-fc71f79d-efab-4d4f-ae09-06a71973bc78.png)
